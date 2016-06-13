@@ -43,7 +43,7 @@ public class HandlerRunnableActivity extends Activity {
         otherButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HandlerRunnableActivity.this, isImageLoaded?"Image Loaded Successfully":"I'm Working ...", Toast.LENGTH_LONG).show();
+                Toast.makeText(HandlerRunnableActivity.this, isImageLoaded?"Image Loaded Successfully":"I'm Working ...", Toast.LENGTH_SHORT).show();
                 //Toast.makeText(HandlerRunnableActivity.this,"I am Working ...", Toast.LENGTH_LONG).show();
             }
         });
