@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Hander Runnable</string>
+    <string name="app_name1">ThreadingHandlerMessages</string>
+    <string name="load_icon_string">Load Icon</string>
+    <string name="other_button_string">Other Button</string>
+    <string name="image_desc_string">image</string>
+    <string name="other_activity">Other Activity</string>
 </resources>

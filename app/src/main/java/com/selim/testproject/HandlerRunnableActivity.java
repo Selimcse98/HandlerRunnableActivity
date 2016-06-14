@@ -4,6 +4,7 @@ package com.selim.testproject;
  * Created by mohammadselimmiah on 13/06/2016.
  */
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -29,6 +30,12 @@ public class HandlerRunnableActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent obtainIntent = this.getIntent();
+            String gotString = obtainIntent.getStringExtra("string");
+            int gotInt = obtainIntent.getIntExtra("intValue", -1);
+        if(gotInt!=-1 || gotString!=null)
+            Toast.makeText(this, "Got String: " + gotString + "\n Got Int: " + gotInt, Toast.LENGTH_LONG).show();
+
         mImageView = (ImageView) findViewById(R.id.imageView);
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
@@ -48,6 +55,18 @@ public class HandlerRunnableActivity extends Activity {
             }
         });
 
+        Button otherActivity = (Button) findViewById(R.id.other_activity);
+        otherActivity.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Intent otherActivityIntent = new Intent("com.selim.testproject.HandlerMessagesActivity");
+                Intent otherActivityIntent = new Intent(HandlerRunnableActivity.this, HandlerMessagesActivity.class);
+                otherActivityIntent.putExtra("string","This is a String value");
+                otherActivityIntent.putExtra("intValue",1000);
+                startActivity(otherActivityIntent);
+                finish();
+            }
+        });
     }
 
     private class LoadIconTask implements Runnable {
